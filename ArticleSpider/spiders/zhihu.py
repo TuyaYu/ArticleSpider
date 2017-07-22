@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #工程目录下 scrapy genspider zhihu www.zhihu.com
-import http.cookiejar as cookielib
+
 import json
 import re
 import time
@@ -21,13 +21,7 @@ class ZhihuSpider(scrapy.Spider):
         "Referer": "https://www.zhizhu.com",
         'User-Agent': agent
     }
-    # 使用登录cookie信息
-    session = requests.session()
-    session.cookies = cookielib.LWPCookieJar(filename='zhihu_cookies.txt')
-    try:
-        session.cookies.load(ignore_discard=True)
-    except:
-        print("Cookie 未能加载")
+
 
 
     def parse(self, response):
@@ -38,7 +32,6 @@ class ZhihuSpider(scrapy.Spider):
         return [scrapy.Request('https://www.zhihu.com/#signin',headers=self.headers,callback = self.login)]
 
 
-    print("shishishishsi")
 
 
     def login(self,response):
