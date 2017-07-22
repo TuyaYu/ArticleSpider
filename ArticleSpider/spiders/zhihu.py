@@ -38,7 +38,7 @@ class ZhihuSpider(scrapy.Spider):
         return [scrapy.Request('https://www.zhihu.com/#signin',headers=self.headers,callback = self.login)]
 
 
-
+    print("shishishishsi")
 
 
     def login(self,response):
