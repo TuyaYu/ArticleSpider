@@ -22,6 +22,8 @@ class ZhihuSpider(scrapy.Spider):
         'User-Agent': agent
     }
 
+    print("github")
+
 
 
     def parse(self, response):
